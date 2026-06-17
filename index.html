@@ -339,6 +339,13 @@ function showPanel() {
   document.getElementById('panel').style.display = 'block';
   loadAndRender(); startClock();
 }
+/* ── API ── */
+const hdrs = {
+  'apikey': SUPABASE_KEY,
+  'Authorization': 'Bearer ' + SUPABASE_KEY,
+  'Content-Type': 'application/json'
+};
+
 if (sessionStorage.getItem('admin_ok')) showPanel();
 
 function startClock() {
@@ -348,13 +355,6 @@ function startClock() {
   }
   tick(); setInterval(tick, 10000);
 }
-
-/* ── API ── */
-const hdrs = {
-  'apikey': SUPABASE_KEY,
-  'Authorization': 'Bearer ' + SUPABASE_KEY,
-  'Content-Type': 'application/json'
-};
 
 async function loadAndRender() {
   const tbody = document.getElementById('leads-tbody');
